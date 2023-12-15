@@ -1,0 +1,19 @@
+/* CSS for the options page */
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer; /* Add a pointer cursor to indicate interactivity */
+  
+    /* Define the initial style (before hovering) */
+    transition: background-color 0.3s ease; /* Add smooth transition for background color */
+  }
+  
+  /* Apply the hover effect */
+  .box:hover {
+    background-color: #2980b9; /* Change the background color on hover */
+  }
+  
