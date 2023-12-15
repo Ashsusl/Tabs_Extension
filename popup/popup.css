@@ -1,0 +1,112 @@
+/* Define styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+    min-height: 200px;
+    /* Set a minimum height for the popup content */
+    min-width: 300px;
+}
+
+/* Style the header */
+h1 {
+    color: #333;
+    font-size: 24px;
+}
+
+/* Style the tab boxes */
+.tab-box {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the tab names */
+.tab-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Style the tab URLs */
+.tab-url {
+    font-size: 14px;
+    color: #0078d4;
+    margin-top: 15px;
+    /* Add margin to separate tab name and URL */
+}
+
+/* Style the "Go to options" button */
+#go-to-options {
+    background-color: #0078d4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#go-to-options:hover {
+    background-color: #005b9f;
+}
+
+/* Style the tab boxes for vertical display */
+.tab-box-vertical {
+    width: 450px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block;
+    /* Change display property to "block" for vertical display */
+    cursor: pointer; /* Add cursor pointer for the clickable effect */
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out; /* Add smooth transitions */
+}
+
+/* Add a hover effect */
+.tab-box-vertical:hover {
+    transform: scale(1.05); /* Zoom in a bit when hovering */
+    background-color: #f2f2f2; /* Change the background color when hovering */
+}
+
+/* Style the "Go to Tab" button arrow */
+.go-to-tab-button {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    /* Adjust arrow size as needed */
+    border-right: 10px solid transparent;
+    /* Adjust arrow size as needed */
+    border-top: 10px solid #5797c8;
+    /* Adjust color and arrow size as needed */
+    cursor: pointer;
+    margin-left: 500px;
+    transform: rotate(315deg);
+    margin-bottom: -12px; /* Adjust to fine-tune vertical position */
+    margin-right: -15px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.go-to-tab-button:hover {
+    background-color: #032e51;
+}
+
+/* Style the "Show URLs" button */
+#toggle-urls {
+    background-color: #0078d4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
