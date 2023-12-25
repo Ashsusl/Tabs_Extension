@@ -54,6 +54,27 @@ function handleUserPreference(request, sendResponse) {
   }
 }
 
+// Function to refresh and update the list of open tabs
+function refreshTabsList() {
+  chrome.tabs.query({}, function (tabs) {
+    openTabs = tabs.map((tab) => ({
+      tabId: tab.id,
+      url: tab.url,
+      title: tab.title,
+    }));
+  });
+}
+
+// Create an alarm to periodically refresh the list of open tabs
+chrome.alarms.create('tabRefreshAlarm', { periodInMinutes: 0.25 }); // Adjust the refresh interval as needed
+
+// Listen for the alarm to refresh tabs
+chrome.alarms.onAlarm.addListener((alarm) => {
+  if (alarm.name === 'tabRefreshAlarm') {
+    refreshTabsList();
+  }
+});
+
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.action === 'getOpenTabs') {
     sendResponse(openTabs);

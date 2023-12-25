@@ -1,12 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "Tab Tracker",
+  "name": "ProtoType Tab Tracker",
   "version": "1.0.0",
-  "description": "Track and display time spent on recent tabs.",
+  "description": "Track Your WorkFlow and Quickly switch between Open Tabs.",
   "permissions": [
       "tabs",
       "activeTab",
-      "storage"
+      "storage",
+      "alarms"
   ],
 
   "background": {

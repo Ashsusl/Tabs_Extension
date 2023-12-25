@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   let showUrls = true; // Set to true to show URLs by default
   let openTabs = [];
+  let refreshIntervalId; // Variable to store the interval ID
 
   // Function to display open tabs
   function displayOpenTabs(tabs) {
@@ -19,22 +20,33 @@ document.addEventListener('DOMContentLoaded', function () {
       tabURL.textContent = showUrls ? truncateText(tab.url, 65) : ''; // Truncate to 50 characters
       tabURL.className = 'tab-url';
 
-    //   const goToTabButton = document.createElement('div');
-    //  // goToTabButton.textContent = 'Go To Tab';
-    //   goToTabButton.className = 'go-to-tab-button';
-    //   goToTabButton.addEventListener('click', function () {
-    //     navigateToTab(tab.tabId);
-    //   });
+      //   const goToTabButton = document.createElement('div');
+      //  // goToTabButton.textContent = 'Go To Tab';
+      //   goToTabButton.className = 'go-to-tab-button';
+      //   goToTabButton.addEventListener('click', function () {
+      //     navigateToTab(tab.tabId);
+      //   });
 
-          // Attach a click event listener to the tab element
-          tabBox.addEventListener('click', function () {
-            navigateToTab(tab.tabId);
-          });
+      // Attach a click event listener to the tab element
+      tabBox.addEventListener('click', function () {
+        navigateToTab(tab.tabId);
+      });
 
       tabBox.appendChild(tabName);
       tabBox.appendChild(tabURL);
       // tabBox.appendChild(goToTabButton);
       tabList.appendChild(tabBox);
+
+      // Add event listeners to detect hover events
+      tabBox.addEventListener('mouseenter', function () {
+        // Pause or slow down the refresh when hovering
+        clearInterval(refreshIntervalId);
+      });
+
+      tabBox.addEventListener('mouseleave', function () {
+        // Resume the refresh when not hovering
+        refreshIntervalId = setInterval(getOpenTabsAndDisplay, 100); // Refresh every 30 seconds (adjust as needed)
+      });
     });
   }
 
@@ -85,4 +97,13 @@ document.addEventListener('DOMContentLoaded', function () {
       chrome.windows.update(tab.windowId, { focused: true });
     });
   }
+
+  // Add this function to refresh the list of tabs
+  function refreshTabs() {
+    getOpenTabsAndDisplay();
+  }
+
+  // Refresh the list of open tabs every 30 seconds (adjust the interval as needed)
+  refreshIntervalId = setInterval(getOpenTabsAndDisplay, 50);
+
 });
